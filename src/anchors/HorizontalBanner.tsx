@@ -18,6 +18,10 @@ class HorizontalBannerAnchor extends PerceptorBase {
   public async run(): Promise<void> {
     this._currentRepo = utils.getRepositoryInfo(window.location)!.nameWithOwner;
 
+    if (document.getElementById('horizontal-banner')) {
+      return;
+    }
+
     const container = document.createElement('div');
     container.id = 'horizontal-banner';
     $('nav.js-repo-nav').after(container);
