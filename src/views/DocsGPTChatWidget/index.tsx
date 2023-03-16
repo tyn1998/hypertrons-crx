@@ -72,7 +72,9 @@ const View = ({ theme, currentRepo, currentDocsName }: Props): JSX.Element => {
     // Callback function to execute when mutations are observed
     const callback: MutationCallback = (mutationList, observer) => {
       if ($('section.emoji-mart').length > 0) {
-        $('section.emoji-mart').addClass(`emoji-mart-${theme}`);
+        $('section.emoji-mart')
+          .removeClass('emoji-mart-light')
+          .addClass(`emoji-mart-${theme}`);
       }
     };
     // Create an observer instance linked to the callback function
