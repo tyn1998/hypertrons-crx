@@ -15,7 +15,11 @@ let colors = ['#ebedf0', '#ffedf9', '#ffc3eb', '#ff3ebf', '#c70085'];
 
 const changeLevelColor = async (level: number, color: string) => {
   const root = document.documentElement;
-  root.style.setProperty(`--color-calendar-graph-day-L${level}-bg`, color);
+  if (level === 0) {
+    root.style.setProperty(`--color-calendar-graph-day-bg`, color);
+  } else {
+    root.style.setProperty(`--color-calendar-graph-day-L${level}-bg`, color);
+  }
   // Save to storage
   const newColors = [...colors];
   newColors[level] = color;
